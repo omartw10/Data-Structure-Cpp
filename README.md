@@ -1,85 +1,89 @@
 
-````markdown
-# 🧮 Array Class in C++
+---
 
-This project demonstrates how to create and manage a **dynamic array** using **Object-Oriented Programming (OOP)** concepts in C++.  
-It helps beginners understand how arrays work internally by implementing common operations manually.
+````markdown
+# 🧩 Data Structures in C++
+
+This repository is a collection of **fundamental Data Structure implementations** written in **C++**, designed for learning and practice purposes.
+
+Each structure is implemented from scratch using **Object-Oriented Programming (OOP)** principles to help understand how data is stored, accessed, and managed in memory.
 
 ---
 
-## 🚀 Features
-✅ Create a custom-size array  
-✅ Fill array elements manually  
-✅ Display array content  
-✅ Append a new item  
-✅ Search for an element  
-✅ Insert an item at a specific index  
-✅ Delete an element by index  
+## 🧠 Included Data Structures (in progress)
+
+| Data Structure | Status | Description |
+|----------------|:-------:|-------------|
+| 🧮 **Arrays** | ✅ Completed | Basic dynamic array operations (fill, display, append, insert, delete, search). |
+| 🔗 **Linked Lists** | 🚧 In progress | Coming soon... |
+| 📚 **Stacks** | 🚧 Planned | Coming soon... |
+| 🧾 **Queues** | 🚧 Planned | Coming soon... |
+| 🌲 **Trees** | 🚧 Planned | Coming soon... |
+
+---
+
+## 🧮 Current Implementation — Arrays
+
+The **Array** class demonstrates how to manage a dynamic array manually, without using STL containers.  
+It supports operations like:
+- Create and fill an array  
+- Display contents  
+- Append a new item  
+- Search by value  
+- Insert at a specific index  
+- Delete by index  
+
+📂 File: `Array.cpp`
 
 ---
 
 ## 🧑‍💻 How to Run
-1. Open the project in **Visual Studio Code** or any C++ IDE.  
-2. Make sure you have a **C++ compiler** installed (for example: `g++`).  
-3. Compile and run the program using:
+
+1. Open this repository in **Visual Studio Code** or any C++ IDE.  
+2. Make sure you have a **C++ compiler** installed (`g++` recommended).  
+3. Run the following commands:
+
    ```bash
-   g++ main.cpp -o main
-   ./main
+   g++ Array.cpp -o Array
+   ./Array
 ````
 
-4. Follow the program instructions in the terminal.
+4. Follow the instructions shown in the console.
 
 ---
 
 ## 💡 Recommended Extension
 
-👉 To make the code comments easier to read, install this VS Code extension:
+For better code readability, install the VS Code extension:
 
 > **Better Comments**
-> You can find it in the VS Code Extensions Marketplace.
 
-🟢 It highlights the comment tags used in this code (like `//? === SECTION === //`),
-making the structure and explanations more readable.
-
----
-
-## 📘 Example Output
-
-```
-Enter the array size:
-5
-Enter number of Array content:
-3
-Enter Item no.1:
-10
-Enter Item no.2:
-20
-Enter Item no.3:
-30
-Array content:
-10   20   30
-Array size: 5   Array length: 3
-Enter new Item to append:
-40
-Array content:
-10   20   30   40
-```
+This extension highlights comment tags (like `//? === SECTION === //`)
+so you can easily understand the structure of the code.
 
 ---
 
-## 🧱 Concepts Used
+## 🧱 Concepts Covered
 
-* Classes and Objects
-* Dynamic Memory Allocation (`new`)
-* Arrays
-* Input/Output operations
-* Conditionals and Loops
+* Object-Oriented Programming (OOP)
+* Dynamic Memory Allocation (`new`, `delete`)
+* Arrays and Indexing
+* Data Manipulation and Traversal
+* Basic Algorithmic Thinking
 
 ---
 
 ## 🧔 Author
 
 Created by **Omar** ✨
-For educational purposes — perfect for beginners learning C++ OOP and arrays.
+A step-by-step C++ learning project focusing on understanding the core of **Data Structures**.
+
+---
+
+## 📅 Project Goal
+
+Build a complete, educational, and easy-to-read **C++ Data Structures Library**
+that includes: Arrays, Linked Lists, Stacks, Queues, and Trees — all implemented from scratch.
 
 
+---
