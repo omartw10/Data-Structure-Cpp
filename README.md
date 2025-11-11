@@ -12,13 +12,14 @@ Each structure is implemented from scratch using **Object-Oriented Programming (
 
 ## 🧠 Included Data Structures (in progress)
 
-| Data Structure | Status | Description |
-|----------------|:-------:|-------------|
-| 🧮 **Arrays** | ✅ Completed | Basic dynamic array operations (fill, display, append, insert, delete, search). |
-| 🔗 **Linked Lists** | 🚧 In progress | Coming soon... |
-| 📚 **Stacks** | 🚧 Planned | Coming soon... |
-| 🧾 **Queues** | 🚧 Planned | Coming soon... |
-| 🌲 **Trees** | 🚧 Planned | Coming soon... |
+|   Data Structure    |       Status      |   Description   |
+|_____________________|___________________|_________________|
+|🧮 **Arrays**        |✅ Completed      | Basic dynamic array operations (fill, display, append, insert, delete, search). |
+
+| 🔗 **Linked Lists** | 🚧 In progress    | Coming soon... |
+| 📚 **Stacks**       | 🚧 Planned        | Coming soon... |
+| 🧾 **Queues**       | 🚧 Planned        | Coming soon... |
+| 🌲 **Trees**        | 🚧 Planned        | Coming soon... |
 
 ---
 
