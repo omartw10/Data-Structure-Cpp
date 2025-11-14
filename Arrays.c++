@@ -1,12 +1,15 @@
 #include <iostream> 
 
 using namespace std;
+
+//? === ARRAY CLASS DEFINITION === //
+// Simple dynamic array wrapper with basic operations
 class Array 
 {
     private:
         int size ;
         int *arr;
-        int length;
+        int length; 
 
     public:
         Array(int sz) {
@@ -15,6 +18,8 @@ class Array
             length = 0;
         }
         
+        //? === FILL === //
+        // Read N values from stdin to populate the array (N <= size)
         void Fill(){
             int numberOfItems;
             cout<<"Enter number of Array content : \n";
@@ -22,81 +27,108 @@ class Array
             if(numberOfItems>size){
                 cout<<"You can't exceed the array size!\n";
                 return;
-            }else{
-                for(int i=0; i<numberOfItems ; i++){
-                    cout<<"Enter Item no."<<i+1<<" : \n";
-                    cin>>arr[i];
-                    length++;
-                }
             }
-            
+            for(int i = 0; i < numberOfItems ; i++){
+                cout << "Enter value for element " << (i+1) << ": ";
+                cin >> arr[i];
+                length++;
+            }
         }
+        //? === // FILL // === //
 
+
+
+        //? === DISPLAY === //
+        // Print current contents in a compact, readable format
         void Display(){
-            cout<<"Array content : \n";
-            for(int i=0 ; i<length ; i++){
-                cout<<arr[i]<<"\t";
+            cout << "\n=== Array ===" << endl;
+            if (length == 0){
+                cout << "(empty)" << endl;
+            } else {
+                for(int i = 0; i < length; i++){
+                    cout << arr[i] << (i+1 < length ? "\t" : "");
+                }
+                cout << endl;
             }
-            cout<<"\n";
+            cout << "===============" << endl;
         }
+        //? === // DISPLAY // === //
 
+
+        // Return capacity
         int gitSize(){
             return size;
         }
 
+
+        // Return current number of elements
         int gitLength(){
             return length;
         }
+        
 
+        //? === APPEND === //
+        // Add item at the end if there is capacity
         void Append(int newItem){
             if (length < size){
-                arr[length]=newItem;
+                arr[length] = newItem;
                 length++;
-            }else{
-                cout<<"You can't Append an item! \n";
+            } else {
+                cout << "Array is full — cannot append." << endl;
             }
-                
-
         }
+        //? === // APPEND // === //
 
+
+
+        //? === SEARCH === //
+        // Return index of key or -1 if not found
         int Search(int key ){
             int index = -1;
-            for(int i=0 ; i<length; i++){
-                if(arr[i]==key){
+            for(int i = 0; i < length; i++){
+                if (arr[i] == key){
                     index = i;
                     break;
                 }
             }
             return index;
         }
+        //? === // SEARCH // === //
 
+
+
+        //? === INSERT === //
+        // Insert newItem at `index` shifting following elements.
+        // Valid when 0 <= index <= length and there is capacity.
         void Insert(int index , int newItem){
             if (index > 0 && index <size )
             {
                 for(int i=length ; i>index ; i--){
                     arr[i]=arr[i-1];
                 }
-                arr[index]=newItem;
+                arr[index] = newItem;
                 length++;
-            }else{
-                cout<<"ERROR!- index out of range . \n";
+            } else {
+                cout << "ERROR - index out of range or array full." << endl;
             }
-            
         }
+        //? === // INSERT // === //
 
+
+        //? === DELETE === //
+        // Remove item at `index` and shift remaining elements
         void Delete(int index){
-            if(index < length && index >= 0){
-                for (int i=index ; i<length-1 ; i++){
-                    arr[i]=arr[i+1];
+            if(index >= 0 && index < length){
+                for (int i = index; i < length - 1; i++){
+                    arr[i] = arr[i+1];
                 }
-                arr[length-1]=0;
+                arr[length - 1] = 0;
                 length--;
-
-            }else{
-                cout<<"ERROR - You can't delete a null item ! \n";
+            } else {
+                cout << "ERROR - invalid index; nothing deleted." << endl;
             }
-            
         }
+        //? === // DELETE // === //
 
 
 };
