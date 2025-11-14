@@ -14,7 +14,7 @@ The project is built step-by-step, and new data structures are added as they are
 | Data Structure | Status | File |
 |----------------|:------:|------|
 | 🧮 Arrays | ✅ Completed | `Array.cpp` |
-| 🔗 Linked Lists (Singly) | ✅ Completed | `LinkedList.cpp` |
+| 🔗 Linked Lists (Singly) | ✅ Completed | `linked-lists.cpp` |
 | 📚 Stacks | ⏳ Coming Soon | — |
 | 🧾 Queues | ⏳ Coming Soon | — |
 | 🌲 Trees | ⏳ Coming Soon | — |
