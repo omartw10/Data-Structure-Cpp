@@ -1,90 +1,126 @@
-
----
-
+إ
 ````markdown
 # 🧩 Data Structures in C++
 
-This repository is a collection of **fundamental Data Structure implementations** written in **C++**, designed for learning and practice purposes.
+This repository contains implementations of fundamental **Data Structures** using **C++**.  
+Each structure is coded from scratch using **Object-Oriented Programming (OOP)** to help beginners understand how data is organized, stored, and manipulated in memory.
 
-Each structure is implemented from scratch using **Object-Oriented Programming (OOP)** principles to help understand how data is stored, accessed, and managed in memory.
-
----
-
-## 🧠 Included Data Structures (in progress)
-
-|   Data Structure    |       Status      |   Description   |
-|_____________________|___________________|_________________|
-|🧮 **Arrays**        |✅ Completed      | Basic dynamic array operations (fill, display, append, insert, delete, search). |
-
-| 🔗 **Linked Lists** | 🚧 In progress    | Coming soon... |
-| 📚 **Stacks**       | 🚧 Planned        | Coming soon... |
-| 🧾 **Queues**       | 🚧 Planned        | Coming soon... |
-| 🌲 **Trees**        | 🚧 Planned        | Coming soon... |
+The project is built step-by-step, and new data structures are added as they are completed.
 
 ---
 
-## 🧮 Current Implementation — Arrays
+## 📌 Included Data Structures (Status)
 
-The **Array** class demonstrates how to manage a dynamic array manually, without using STL containers.  
-It supports operations like:
-- Create and fill an array  
-- Display contents  
-- Append a new item  
-- Search by value  
-- Insert at a specific index  
-- Delete by index  
+| Data Structure | Status | File |
+|----------------|:------:|------|
+| 🧮 Arrays | ✅ Completed | `Array.cpp` |
+| 🔗 Linked Lists (Singly) | ✅ Completed | `LinkedList.cpp` |
+| 📚 Stacks | ⏳ Coming Soon | — |
+| 🧾 Queues | ⏳ Coming Soon | — |
+| 🌲 Trees | ⏳ Coming Soon | — |
 
-📂 File: `Array.cpp`
+---
+
+## 🧮 Arrays (Completed)
+
+The **Array** implementation includes basic operations such as:
+
+- Fill  
+- Display  
+- Append  
+- Insert  
+- Delete  
+- Search  
+
+This helps beginners understand how arrays work internally without using STL containers.
+
+📄 File: `Array.cpp`
+
+---
+
+## 🔗 Linked List (Completed)
+
+The **Singly Linked List** implementation includes:
+
+- Insert at beginning  
+- Append  
+- Insert before a specific value  
+- Search for an element  
+- Delete an element  
+- Display list contents  
+- Count number of elements  
+
+This structure demonstrates dynamic memory handling and pointer manipulation in an easy and readable way.
+
+📄 File: `LinkedList.cpp`
 
 ---
 
 ## 🧑‍💻 How to Run
 
-1. Open this repository in **Visual Studio Code** or any C++ IDE.  
-2. Make sure you have a **C++ compiler** installed (`g++` recommended).  
-3. Run the following commands:
+Use the following commands for any file:
 
-   ```bash
-   g++ Array.cpp -o Array
-   ./Array
+```bash
+g++ filename.cpp -o output
+./output
 ````
 
-4. Follow the instructions shown in the console.
+Example:
+
+```bash
+g++ LinkedList.cpp -o linkedlist
+./linkedlist
+```
 
 ---
 
-## 💡 Recommended Extension
+## 💡 Recommended Extension (VS Code)
 
-For better code readability, install the VS Code extension:
+For clearer comment highlighting, install:
 
 > **Better Comments**
 
-This extension highlights comment tags (like `//? === SECTION === //`)
-so you can easily understand the structure of the code.
+This extension helps visualize the structured comments used throughout the code.
 
 ---
 
-## 🧱 Concepts Covered
+## 📘 Concepts Covered
 
 * Object-Oriented Programming (OOP)
-* Dynamic Memory Allocation (`new`, `delete`)
-* Arrays and Indexing
-* Data Manipulation and Traversal
-* Basic Algorithmic Thinking
+* Pointers & Dynamic Memory Allocation
+* Manual Data Structure Implementation
+* Linked Structures vs Sequential Structures
+* Basic Algorithms for Insert/Delete/Search
+
+---
+
+## 📝 Source Acknowledgment
+
+Some parts of this project were inspired by tutorials from:
+
+**Dr. Mohamed El-Desouki – YouTube**
+with slight modifications and enhancements added for clarity and structure.
 
 ---
 
 ## 🧔 Author
 
 Created by **Omar** ✨
-A step-by-step C++ learning project focusing on understanding the core of **Data Structures**.
+A learning-focused project to practice core Data Structures in C++ from the ground up.
 
 ---
 
 ## 📅 Project Goal
 
-Build a complete, educational, and easy-to-read **C++ Data Structures Library**
-that includes: Arrays, Linked Lists, Stacks, Queues, and Trees — all implemented from scratch.
+Build a complete educational collection of C++ Data Structures including:
 
+✔ Arrays
+✔ Linked Lists
+⏳ Stacks
+⏳ Queues
+⏳ Trees
 
----
+All implemented manually, without STL, to strengthen understanding of how each structure truly works.
+
+```
+
