@@ -1,456 +1,431 @@
 
----
 
-# 📚 Data Structures in C++ — Full Educational Documentation
+# 📘 **Documentation — Educational Guide to Core Data Structures in C++**
 
-This repository provides a complete educational implementation of **core Data Structures in C++**, written manually without STL, for the purpose of understanding how each structure works internally — including memory layout, pointers, node manipulation, shifting logic, and time complexity.
-
-This README is designed to be a **fully detailed documentation**, explaining:
-
-* every file
-* every class
-* every function
-* every attribute
-* internal workflow
-* memory model
-* complexity analysis
-* diagrams & conceptual understanding
+This document provides a structured, clear, and student-friendly explanation of all data structures implemented in this project.
+It includes diagrams, workflow illustrations, and conceptual explanations suitable for university-level courses.
 
 ---
 
-# 📌 Included Files (Current Status)
+# **1. Array — Contiguous Memory Structure**
 
-| Data Structure      | Status      | File           |
-| ------------------- | ----------- | -------------- |
-| Array               | Completed   | Array.cpp      |
-| Singly Linked List  | Completed   | linkedList.cpp |
-| Stack (Linked List) | Completed   | Stack.cpp      |
-| Queue (Linked List) | Completed   | Queue.cpp      |
-| Trees               | Coming Soon | —              |
-
----
-
-# 1. Overview of All Concepts
-
-Before diving into each implementation file, here is a conceptual overview:
-
-### **1. Array**
-
-A contiguous memory block.
-Fast random access O(1).
-Insert/Delete expensive due to shifting.
-Fixed size unless resized manually.
-
-### **2. Singly Linked List**
-
-A chain of nodes, where each node has:
-
-* data
-* pointer to next
-
-Flexible size, fast insertion anywhere (O(1) if position known), but slow searching (O(n)).
-
-### **3. Stack (LIFO)**
-
-Implemented using Linked List.
-Fast operations: push/pop are O(1).
-
-### **4. Queue (FIFO)**
-
-Implemented using Linked List.
-Maintains `front` and `rear` pointers for O(1) enqueue/dequeue.
-
----
-
-# 2. Array.cpp — Full Documentation
-
-## 2.1 Purpose
-
-The **Array** class manually manages a block of memory using `new int[size]`.
-It replicates basic functionality of a simplified array/vector without using STL.
-
----
-
-## 2.2 Attributes (Variables)
-
-Inside the class:
-
-* `int* arr` → pointer to the allocated memory.
-* `int size` → the total allocated capacity.
-* `int length` → how many elements are currently stored.
-
-**Memory layout example:**
+## **1.1 What an Array Looks Like in Memory**
 
 ```
-Index: 0   1   2   3   4
-Value: 10  25  7   X   X
-                 ↑
-           unused memory
++-----+-----+-----+-----+-----+
+| 10  | 25  | 30  | 50  |  X  |
++-----+-----+-----+-----+-----+
+  0     1     2     3     4   ← index
+```
+
+* Memory is **contiguous** (back-to-back blocks).
+* Direct access via:
+  `address = base + index * sizeof(int)`
+
+---
+
+## **1.2 Core Attributes**
+
+| Attribute    | Meaning                       |
+| ------------ | ----------------------------- |
+| `int* arr`   | Pointer to first memory block |
+| `int size`   | Total allocated capacity      |
+| `int length` | Number of valid elements      |
+
+---
+
+## **1.3 Insert Operation (with shifting)**
+
+### Before inserting `99` at index 2:
+
+```
+Index:   0     1     2     3     4
+        +-----+-----+-----+-----+-----+
+        | 10  | 25  | 30  | 50  |  X  |
+        +-----+-----+-----+-----+-----+
+                      ↑ insert here
+```
+
+### After shifting:
+
+```
++-----+-----+-----+-----+-----+
+| 10  | 25  | 30  | 50  | 50  |
++-----+-----+-----+-----+-----+
+                      ↑ shifted
+```
+
+### Final result:
+
+```
++-----+-----+-----+-----+-----+
+| 10  | 25  | 99  | 30  | 50  |
++-----+-----+-----+-----+-----+
 ```
 
 ---
 
-## 2.3 Constructor
+## **1.4 Time Complexity Summary**
 
-**Purpose:** allocate a new integer array and initialize counters.
-
-```
-Array(int s) {
-    size = s;
-    arr = new int[size];
-    length = 0;
-}
-```
-
-### Explanation:
-
-* `size` stores the maximum capacity.
-* `new int[size]` allocates contiguous memory.
-* `length = 0` because the array is empty initially.
+| Operation | Complexity |
+| --------- | ---------- |
+| Access    | O(1)       |
+| Insert    | O(n)       |
+| Delete    | O(n)       |
+| Append    | O(1)       |
+| Search    | O(n)       |
 
 ---
 
-## 2.4 Functions — Full Explanation
+# **2. Singly Linked List — Dynamic Node-Based Structure**
 
-### **void fill()**
+## **2.1 Node Representation**
 
-Fills the array with user input.
+```
++---------+-----------+
+|  data   |   next →  |
++---------+-----------+
+```
 
-* Prompts user for `length`
-* Ensures `length <= size`
-* Reads each value into `arr[i]`
-
-Used for testing and practice.
+Nodes are scattered in memory, connected by pointers.
 
 ---
 
-### **void append(int value)**
-
-Adds a new element at the end *if capacity allows*.
-
-Logic:
-
-* If `length < size`, write element at `arr[length]`.
-* Increment `length`.
-
----
-
-### **void insert(int index, int value)**
-
-Inserts at a specific index by shifting elements.
-
-Steps:
-
-1. Validate index
-2. Shift elements one step to the right
-3. Insert value at index
-4. Increase `length`
-
-Memory shift example:
-
-Before:
+## **2.2 Linked List Visual Example**
 
 ```
-10 20 30 40 X
-    ↑ insert here
-```
-
-After:
-
-```
-10 20 99 30 40
-```
-
----
-
-### **void Delete(int index)**
-
-Removes element by shifting left.
-
-Before:
-
-```
-10 20 30 40
-       ↑ delete index 2
-```
-
-After:
-
-```
-10 20 40 X
-```
-
----
-
-### **int search(int key)**
-
-Linear search → returns index or -1.
-
----
-
-### **void display()**
-
-Print all elements up to `length`.
-
----
-
-## 2.5 Time Complexity
-
-| Operation | Complexity      |
-| --------- | --------------- |
-| Access    | O(1)            |
-| Search    | O(n)            |
-| Insert    | O(n) (shifting) |
-| Delete    | O(n)            |
-| Append    | O(1)            |
-
----
-
-# 3. linkedList.cpp — Full Documentation (Singly Linked List)
-
-## 3.1 Node Structure
-
-Each node contains:
-
-```
-int data;
-Node* next;
-```
-
-Memory representation:
-
-```
-[data | next] → [data | next] → [data | next]
-```
-
----
-
-## 3.2 Class Attributes
-
-* `Node* head` → pointer to the first node in the list.
-
-If list is empty:
-
-```
-head = NULL
-```
-
----
-
-## 3.3 Functions — Full Breakdown
-
----
-
-### **bool isEmpty()**
-
-Checks whether `head == NULL`.
-
----
-
-### **void insertFirst(int newItem)**
-
-Creates a new node and inserts it at the beginning.
-
-Steps:
-
-1. Allocate node
-2. Set `data = newItem`
-3. Point `newNode->next` to current head
-4. Update `head`
-
-Memory:
-
-Before:
-
-```
-head → A → B → C
-```
-
-After:
-
-```
-new → A → B → C
-↑
 head
+ ↓
++----+----+     +----+----+     +----+----+
+| 10 | o----→   | 20 | o----→   | 30 |NULL|
++----+----+     +----+----+     +----+----+
 ```
 
 ---
 
-### **void insertLast(int newItem)**
+## **2.3 Insert at Beginning**
 
-If list is empty: becomes head.
-Otherwise, traverse until last node (`next == NULL`), then attach new node.
-
----
-
-### **void insertAfter(int oldItem, int newItem)**
-
-Find node with value = oldItem
-Insert new node after it by adjusting pointers:
+### Before:
 
 ```
-old → next becomes new
-new → next becomes old->next
+head → [10] → [20] → NULL
+```
+
+### After inserting 5:
+
+```
+head
+ ↓
+[5] → [10] → [20] → NULL
+```
+
+Operation is **O(1)** because no traversal is needed.
+
+---
+
+## **2.4 Insert at End**
+
+```
+Traverse until next == NULL
+Then attach new node
+```
+
+Diagram:
+
+```
+[10] → [20] → [30] → NULL
+                      ↓
+                    insert here
 ```
 
 ---
 
-### **void deleteNode(int item)**
+## **2.5 Delete Operation**
 
-Handles three cases:
+Deleting value 20:
 
-1. Delete head
-2. Delete middle
-3. Delete last
-
-Pointer adjustments:
+### Before:
 
 ```
-prev->next = temp->next
-delete temp
+[10] → [20] → [30] → NULL
+         ↑ delete
+```
+
+### After:
+
+```
+[10] → [30] → NULL
 ```
 
 ---
 
-### **Node* search(int item)**
+# **3. Stack — LIFO Structure (Linked List Implementation)**
 
-Linear traversal until match.
+## **3.1 Visual Understanding**
 
----
-
-### **void display()**
-
-Prints all nodes.
-
----
-
-## 3.4 Time Complexity
-
-| Operation      | Complexity |
-| -------------- | ---------- |
-| Insert at head | O(1)       |
-| Insert at end  | O(n)       |
-| Search         | O(n)       |
-| Delete         | O(n)       |
-| Traverse       | O(n)       |
-
----
-
-# 4. Stack.cpp — Full Documentation
-
-Stack is implemented using Linked List for fast push/pop.
-
-## 4.1 Attributes
-
-* `Node* top` → pointer to the top of the stack.
-
----
-
-## 4.2 Functions
-
-### **void push(int item)**
-
-Creates a new node, inserts it at the top.
-
-### **int pop()**
-
-Removes top node, returns its value.
-
-### **bool isEmpty()**
-
-Checks top == NULL.
-
-### **int peek()**
-
-Returns top’s data without removing it.
-
----
-
-## 4.3 Time Complexity
-
-All operations O(1).
-
----
-
-# 5. Queue.cpp — Full Documentation
-
-Queue implemented using Linked List.
-
-## 5.1 Attributes
-
-* `Node* front`
-* `Node* rear`
-
----
-
-## 5.2 Functions
-
-### **void enqueue(int item)**
-
-Attach new node at rear.
-
-Memory:
+Stack top visually grows upward:
 
 ```
-front → A → B → C ← rear
+    top
+     ↓
++---------+
+|   40    |
++---------+
+|   30    |
++---------+
+|   10    |
++---------+
 ```
 
-### **int dequeue()**
+---
 
-Remove node from front.
+## **3.2 Push Operation**
 
-### **bool isEmpty()**
+### Before:
 
-`front == NULL`
+```
+top → [30] → [10]
+```
 
-### **int getFront()**
+### After push(40):
 
-Returns front item.
+```
+top → [40] → [30] → [10]
+```
+
+**Always O(1)**
 
 ---
 
-## 5.3 Time Complexity
+## **3.3 Pop Operation**
 
-All ops O(1).
+```
+pop() removes the top node
+```
 
----
+### Before:
 
-# 6. Cross-Structure Memory Explanation
+```
+top → [40] → [30] → [10]
+```
 
-### Arrays
+### After:
 
-* Contiguous memory
-* Fast access
-* Expensive shifting
-
-### Linked Lists
-
-* Non-contiguous nodes
-* Cheap insert/delete
-* Slow search
-
-### Stacks and Queues
-
-* Special behaviors built on linked list mechanics
+```
+top → [30] → [10]
+```
 
 ---
 
-# 7. Summary Table
+# **4. Queue — FIFO Structure (Linked List Implementation)**
 
-| Structure   | Memory Type     | Strength             | Weakness       | Complexity |
-| ----------- | --------------- | -------------------- | -------------- | ---------- |
-| Array       | contiguous      | fast access          | slow shifting  | mix        |
-| Linked List | scattered nodes | fast insert/delete   | slow search    | linear     |
-| Stack       | linked          | fast push/pop        | limited access | O(1)       |
-| Queue       | linked          | fast enqueue/dequeue | none major     | O(1)       |
+## **4.1 Concept Visualization**
+
+```
+front → [oldest] → […] → [newest] ← rear
+```
+
+---
+
+## **4.2 Enqueue Operation**
+
+### Before:
+
+```
+front → [10] → [20] ← rear
+```
+
+### After enqueue(30):
+
+```
+front → [10] → [20] → [30] ← rear
+```
 
 ---
 
-# 8. Notes & Recommendations
+## **4.3 Dequeue Operation**
 
-* Consider adding a destructor in each file to free memory.
-* You may extend the Array with resizing (like vector).
-* Add error-checking for robustness.
-* Trees & Graphs may be added later.
+### Before:
+
+```
+front → [10] → [20] → [30]
+```
+
+### After:
+
+```
+front → [20] → [30]
+```
 
 ---
+
+# **5. Binary Search Tree (BST) — Hierarchical Linked Structure**
+
+## **5.1 Structure Overview**
+
+```
+        (40)
+       /    \
+    (20)    (60)
+    /  \    /  \
+ (10)(30)(50)(70)
+```
+
+BST Rules:
+
+* Left child < parent
+* Right child > parent
+
+---
+
+## **5.2 Insert Operation**
+
+Inserting 25:
+
+Path:
+
+```
+25 < 40 → go left
+25 > 20 → go right
+25 < 30 → insert as left child
+```
+
+```
+      (40)
+       |
+      (20)
+        \
+        (30)
+        /
+      (25) ← new
+```
+
+---
+
+## **5.3 Search Operation**
+
+Searching for 30:
+
+```
+30 < 40 → left  
+30 > 20 → right  
+found
+```
+
+Visualization:
+
+```
+(40)
+  ↓
+(20)
+  ↓
+(30) ← found
+```
+
+---
+
+## **5.4 Traversals (Tree Printing Orders)**
+
+### **Inorder (L → Root → R)**
+
+```
+Outputs sorted values
+```
+
+Example:
+
+```
+10 20 25 30 40 50 60 70
+```
+
+### **Preorder (Root → L → R)**
+
+Used for tree copying.
+
+### **Postorder (L → R → Root)**
+
+Used for tree deletion.
+
+---
+
+## **5.5 Delete Operation Overview**
+
+Three major cases:
+
+### **Case 1 — Leaf Node**
+
+```
+   (20)
+     \
+    (30) ← delete
+```
+
+Becomes:
+
+```
+(20)
+```
+
+---
+
+### **Case 2 — One Child**
+
+```
+ (20)
+   \
+   (30)
+     \
+     (40)
+```
+
+Delete 30 → replace by its child.
+
+---
+
+### **Case 3 — Two Children**
+
+Replace with **inorder successor** or **inorder predecessor**.
+
+Visualization:
+
+```
+       (50)
+      /    \
+   (30)    (70)
+          /
+        (60)
+```
+
+Deleting 50:
+
+* Successor = 60
+* Replace 50 → 60
+
+```
+       (60)
+      /    \
+   (30)    (70)
+```
+
+---
+
+# **6. Summary Comparison**
+
+| Structure   | Best Use               | Weakness                  |
+| ----------- | ---------------------- | ------------------------- |
+| Array       | Fast indexing          | Slow shifting             |
+| Linked List | Fast insert/delete     | Slow access               |
+| Stack       | Expression evaluation  | Only top accessible       |
+| Queue       | Scheduling & buffering | Cannot access middle      |
+| BST         | Fast search (balanced) | Poor worst-case if skewed |
+
+---
+
+# **7. Final Notes for Students**
+
+* Arrays are ideal when size is known.
+* Linked Lists are ideal when size changes frequently.
+* Stacks and Queues are special-purpose linear structures.
+* Trees allow **hierarchical** organization and fast searching.
+* BST efficiency depends heavily on shape (balanced vs skewed).
+
