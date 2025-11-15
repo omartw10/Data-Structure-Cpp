@@ -1,6 +1,3 @@
-
-
-````markdown
 # 🧩 Data Structures in C++
 
 This repository contains implementations of fundamental **Data Structures** using **C++**, built manually without STL to help beginners understand how each structure behaves internally.
@@ -15,10 +12,10 @@ The project will continue to grow as more structures are completed.
 
 | Data Structure | Status | File |
 |----------------|:------:|------|
-| 🧮 Arrays | ✅ Completed | `Array.cpp` |
-| 🔗 Linked List (Singly) | ✅ Completed | `LinkedList.cpp` |
-| 📚 Stack (Linked Implementation) | ✅ Completed | `Stack.cpp` |
-| 🧾 Queue | ⏳ Coming Soon | — |
+| 🧮 Arrays | ✅ Completed | `array.cpp` |
+| 🔗 Linked List (Singly) | ✅ Completed | `linked-list.cpp` |
+| 📚 Stack (Linked Implementation) | ✅ Completed | `stack.cpp` |
+| 🧾 Queue (Linked Implementation) | ✅ Completed | `queue.cpp` |
 | 🌲 Trees | ⏳ Coming Soon | — |
 
 ---
@@ -72,6 +69,23 @@ This helps in understanding stack behavior (LIFO) with dynamic memory.
 
 ---
 
+## 🧾 Queue (Completed)
+
+A **Queue** implemented using a linked list (FIFO behavior):
+
+- `enqueue()` — Add item to rear  
+- `dequeue()` — Remove front item  
+- `peek()` — Read the front item  
+- `isEmpty()`  
+- `count()` — Number of elements  
+- `getFront()` — Return front item  
+- `getRear()` — Return rear item  
+- `clear()` — Remove all items  
+
+📄 File: `Queue.cpp`
+
+---
+
 ## 🧑‍💻 How to Run
 
 Compile any file using:
@@ -79,13 +93,13 @@ Compile any file using:
 ```bash
 g++ filename.cpp -o output
 ./output
-````
+```
 
 Example:
 
 ```bash
-g++ Stack.cpp -o stack
-./stack
+g++ Queue.cpp -o queue
+./queue
 ```
 
 ---
@@ -102,12 +116,13 @@ This improves readability of structured comments used throughout the code.
 
 ## 📘 Concepts Covered
 
-* Fundamentals of Data Structures
-* Dynamic Memory Allocation
-* Pointers & Linked Nodes
-* OOP Structure for DS Implementation
-* Arrays vs Linked Structures
-* Stack (LIFO) Behavior
+- Fundamentals of Data Structures  
+- Dynamic Memory Allocation  
+- Pointers & Linked Nodes  
+- OOP Structure for DS Implementation  
+- Arrays vs Linked Structures  
+- Stack (LIFO) Behavior  
+- Queue (FIFO) Behavior  
 
 ---
 
@@ -115,14 +130,14 @@ This improves readability of structured comments used throughout the code.
 
 Parts of this project were inspired by tutorials from:
 
-**Eng. Mohamed El-Desouki – YouTube**
+**Eng. Mohamed El-Desouki – YouTube**  
 with minor modifications and improvements added for clarity and structure.
 
 ---
 
 ## 🧔 Author
 
-Developed by **Omar**
+Developed by **Omar**  
 A progressive learning project focused on writing core data structures in C++ manually.
 
 ---
@@ -131,10 +146,10 @@ A progressive learning project focused on writing core data structures in C++ ma
 
 Build a full educational set of manually implemented data structures:
 
-✔ Arrays
-✔ Linked Lists
-✔ Stacks
-⏳ Queues
-⏳ Trees
+✔ Arrays  
+✔ Linked Lists  
+✔ Stacks  
+✔ Queues  
+⏳ Trees  
 
 All coded from scratch, without STL, to strengthen understanding of how each structure works internally.
